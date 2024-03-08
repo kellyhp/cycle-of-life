@@ -29,7 +29,7 @@ Promise.all([
     mergedData = mergedData.filter(d => d.infantDeaths !== 0);
     mergedData = mergedData.filter(d => (d.Region || d.unemployment));
 
-    // Sort merged data by region
+    // sort merged data by region
     mergedData.sort((a, b) => a.Region.localeCompare(b.Region));
 
     // merge by unemployment rate
@@ -53,9 +53,9 @@ Promise.all([
 
     console.log(links);
 
-    var margin = { top: 10, right: 30, bottom: 200, left: 60 },
+    var margin = { top: 10, right: 30, bottom: 250, left: 60 },
         width = 1200 - margin.left - margin.right,
-        height = 800 - margin.top - margin.bottom;
+        height = 860 - margin.top - margin.bottom;
 
     var svg = d3.select("#arc_diagram")
         .append("svg")
@@ -105,7 +105,6 @@ Promise.all([
             .attr('stroke-width', 1);
     });
 
-    // Append nodes for larger circles first
     var largerNodes = svg.selectAll("largerNodes")
         .data(mergedData.filter(d => size(d.infantDeaths) >= 20))
         .enter()
@@ -116,7 +115,6 @@ Promise.all([
         .style("fill", function(d) { return color(d.Region) })
         .attr("stroke", "white");
 
-    // Append nodes for smaller circles next
     var smallerNodes = svg.selectAll("smallerNodes")
         .data(mergedData.filter(d => size(d.infantDeaths) < 20))
         .enter()
@@ -168,7 +166,35 @@ Promise.all([
             labels.style('opacity', 1)
                 .style('font-size', 12);
     });
+
+    // title
+    svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 30)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "24px") 
+        .style("text-decoration", "underline")  
+        .text("Infant Deaths and Unemployment by Country");
+
+    // legend
+    var legend = svg.selectAll(".legend")
+        .data(allRegions)
+        .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) { return "translate(0," + (height + 70 + i * 20) + ")"; });
+
+    legend.append("rect")
+        .attr("x", width - 18)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color);
+
+    legend.append("text")
+        .attr("x", width - 24)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text(function(d) { return d; });
 }).catch(function(error) {
-    // Handle any errors that occur during loading or processing the data
     console.error("Error loading or processing data:", error);
 });
