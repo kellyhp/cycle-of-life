@@ -6,19 +6,35 @@
     <meta name="description" content="">
     <title>Life Expectancy</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-	<script src="steamgraph.js" defer></script>
+    <script src="steamgraph.js" defer></script>
     <script src="arcdiagram.js" defer></script>
     <style>
-        /* Add any CSS styles here */
-        svg {
-            border: 1px solid #ccc;
-        }
+    .tooltip {
+        position: absolute;
+        pointer-events: none;
+        z-index: 1000; 
+        opacity: 0;
+        background-color: rgba(255, 255, 255, 0.9); 
+        border: 1px solid #ccc; 
+        padding: 10px; 
+        font-size: 15px; 
+        color: black;
+    }
     </style>
+
 </head>
 
-<body style="margin: 0; padding-left: 3%; padding-top: 3%; background-color: gray; display: flex; flex-direction: column">
-	<p> testing</p>
-    <div id="arc_diagram"></div>
+<body style="margin: 0; padding-left: 1%; padding-top: 3%; background-color: gray; display: flex; flex-direction: row">
+    <div style="flex; flex-direction: row">
+        <div style="flex; flex-direction: row; margin-bottom: 10px;">
+            <button id="life_expectancy_btn">Life Expectancy</button>
+            <button id="infant_deaths_btn">Infant Deaths</button>
+        </div>
+        <div>
+            <div class="diagram-container" id="life_expectancy_diagram"></div>
+            <div class="diagram-container" id="infant_deaths_diagram"></div>
+        </div>
+    </div>
 </body>
 
 </html>
