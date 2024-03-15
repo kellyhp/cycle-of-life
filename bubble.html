@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble Graph</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <style>
+      .bubbles {
+        stroke-width: 2px;
+        stroke: white;
+      }
+      .bubbles:hover {
+        stroke: black;
+      }
+      body {
+        display: flex;
+      }
+      .graph-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+      }
+      .graph {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="graph-container">
+      <div id="bubble-container" class="graph">
+        <h2>
+          Average global Life expectancy, unemployment
+          <br />
+          rate, and prevalence of undernourishment from
+          <br />
+          2001-2019.
+        </h2>
+      </div>
+    </div>
+    <div class="graph-container">
+      <div id="bubble-container2" class="graph">
+        <h2>
+          Average global infant death, Polio
+          <br />
+          immunizations for under 1 year old rate,
+          <br />
+          and the GDP from 2000 - 2015.
+        </h2>
+      </div>
+    </div>
+    <script src="bubble.js"></script>
+  </body>
+</html>
