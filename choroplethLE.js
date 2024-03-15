@@ -49,6 +49,9 @@ let scatterMargin = {top: 40, right: 30, bottom: 10, left: 70},
             // Show tooltip
             d3.select("body").append("div")
                 .attr("class", "tooltip")
+                .style("background-color", "black")
+                .style("color", "white")
+                .style("padding", "10px")
                 .style("left", tooltipX + "px")
                 .style("top", tooltipY + "px")
                 .html("<strong>Country:</strong> " + d.properties.name + "<br><strong>Life Expectancy:</strong> " + (data.get(d.id) ? data.get(d.id) : "Data not available"));
