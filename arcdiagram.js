@@ -69,7 +69,7 @@ function initializeLifeExpectancyDiagram(data) {
 
     var color = d3.scaleOrdinal()
         .domain(allRegions)
-        .range(d3.schemeSet3);
+        .range(d3.schemeSet2);
 
     // linear scale based on life expectancy
     var size = d3.scaleLinear()
@@ -322,7 +322,7 @@ function initializeInfantDeathsDiagram(data) {
 
     var color = d3.scaleOrdinal()
         .domain(allRegions)
-        .range(d3.schemeSet3);
+        .range(d3.schemeSet2);
 
     // linear scale based on infant deaths
     var size = d3.scaleLinear()
