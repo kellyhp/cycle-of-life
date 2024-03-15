@@ -4,9 +4,9 @@
 
 This project consists of several visualizations implemented using D3.js, each providing insights into various aspects of global health and socio-economic status. Here are the functionalities of each visualization:
 
-1. **Choropleth Map (World Map of Life Expectancy and Infant Deaths):**
-   - This visualization depicts a world map where countries are color-coded based on life expectancy and infant mortality rates.
-   - Users can hover over each country to view detailed information such as life expectancy, infant mortality rate, and other relevant metrics.
+1. **Choropleth Map (World Map of Life Expectancy):**
+   - This visualization depicts a world map where countries are color-coded based on life expectancy.
+   - Users can hover over each country to view detailed information such as life expectancy and other relevant metrics.
    - The data used for this visualization is stored in CSV files located in the `data` folder.
 
 2. **Bubble Chart (Average Global Life Expectancy, Unemployment, and Undernourishment; Average Global Infant Deaths, Polio Immunizations, and GDP):**
